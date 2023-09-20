@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recarga Cartão Fidelidade</title>
+</head>
+
+<body>
+    Quantas passagens deseja adquirir? <input type="number" id="passagens"> <br>
+    <button onclick="comprarPassagens()">Comprar</button>
+    <div id="mostrarPassagens"></div>
+</body>
+
+</html>
+
+<script>
+    function comprarPassagens() {
+        var qtdPassagens = Number(passagens.value);
+        var valorPassagem = 4.40;
+        var desconto = 0;
+
+        if (qtdPassagens >= 8 && qtdPassagens <= 19) {
+            desconto = 5;
+            mostrarPassagens.innerHTML = (`Você pagará ${(valorPassagem * qtdPassagens) * desconto}`)
+        }
+
+        else if (qtdPassagens >= 20 && qtdPassagens <= 49) {
+            desconto = 0.05;
+            mostrarPassagens.innerHTML = (`Você pagará ${(valorPassagem * qtdPassagens) * desconto}`)
+        }
+
+        else if (qtdPassagens == 50) {
+            desconto = 0.07;
+            mostrarPassagens.innerHTML = (`Você pagará ${(valorPassagem * qtdPassagens) * desconto}`);
+        }
+
+        else {
+            alert(`Quantidade inválida para o Fidelidade!`)
+        }
+
+    }
+</script>

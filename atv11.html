@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recarga Cartão Fidelidade</title>
 </head>
+
 <!-- CÓDIGO INCOMPLETO -->
+
 <body>
     Quantas passagens deseja adquirir? <input type="number" id="passagens"> <br>
     <button onclick="comprarPassagens()">Comprar</button>
@@ -22,18 +24,18 @@
         var desconto = 0;
 
         if (qtdPassagens >= 8 && qtdPassagens <= 19) {
-            desconto = 5;
-            mostrarPassagens.innerHTML = (`Você pagará ${(valorPassagem * qtdPassagens) * desconto}`)
+            desconto = 0.03;
+            mostrarPassagens.innerHTML = (`Você pagará R$${(valorPassagem * qtdPassagens) * (1 - desconto)}`)
         }
 
         else if (qtdPassagens >= 20 && qtdPassagens <= 49) {
             desconto = 0.05;
-            mostrarPassagens.innerHTML = (`Você pagará ${(valorPassagem * qtdPassagens) * desconto}`)
+            mostrarPassagens.innerHTML = (`Você pagará R$${(valorPassagem * qtdPassagens) * (1 - desconto)}`)
         }
 
         else if (qtdPassagens == 50) {
             desconto = 0.07;
-            mostrarPassagens.innerHTML = (`Você pagará ${(valorPassagem * qtdPassagens) * desconto}`);
+            mostrarPassagens.innerHTML = (`Você pagará R$${(valorPassagem * qtdPassagens) * (1 - desconto)}`);
         }
 
         else {

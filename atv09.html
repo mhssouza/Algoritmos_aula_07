@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,39 @@
 <!-- CÓDIGO INCOMPLETO -->
 
 <body>
-    Qual o nome do Candidato?<input type="text" id="input_nome"> <br>
+    Qual a Altura Mínima que o candidato deve ter? <input type="number" id="input_alturaMin"> <br>
+    Qual a Altura Máxima que o candidato deve ter? <input type="number" id="input_alturaMax"> <br>
+    Qual o nome do Candidato? <input type="text" id="input_nome"> <br>
     Qual a altura do Candidato? <input type="number" id="input_altura"> <br>
 
+    <button onclick="analisarAltura()">Analisar Altura</button>
+
+    <div id="mensagem"></div>
 </body>
+
 </html>
+
+<script>
+    function analisarAltura() {
+        var alturaMin = Number(input_alturaMin.value);
+        var alturaMax = Number(input_alturaMax.value);
+        var nome = input_nome.value;
+        var alturaCand = Number(input_altura.value);
+
+        if (alturaMin < 1) {
+            alert("Intervalo Inválido! (Altura Minima precisa ser MAIOR que 1)");
+        }
+
+        else if (alturaMax < alturaMin) {
+            alert("Intervalo Inválido! (Altura Máxima precisa ser MAIOR que Altura Mínima)");
+        }
+
+        else if (alturaCand >= alturaMin && alturaCand <= alturaMax) {
+            mensagem.innerHTML += `O candidato ${nome} com altura de ${alturaCand} participará do processo de seleção de piloto <br>`
+        }
+
+        else {
+            mensagem.innerHTML += `Infelizmente o candidato ${nome} com altura de ${alturaCand} não atende os requisitos <br>`
+        }
+    }
+</script>
